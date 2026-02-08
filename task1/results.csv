@@ -1,0 +1,11 @@
+domain,min_rtt_ms,avg_rtt_ms,max_rtt_ms,packet_loss_%
+google.com,63,63,63,0.0
+wikipedia.org,128,129,130,0.0
+ya.ru,52,52,53,0.0
+hh.ru,61,61,62,0.0
+github.com,89,90,92,0.0
+ozon.ru,49,49,50,0.0
+wildberries.ru,50,50,51,0.0
+qweqweqwe123.com,N/A,N/A,N/A,100
+nexusmods.com,97,97,97,0.0
+steamcommunity.com,62,62,63,0.0
