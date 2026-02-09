@@ -24,10 +24,9 @@ def ping_domain(domain, count=4):
         )
         
         output = result.stdout
-        error = result.stderr
         
         if result.returncode != 0:
-            return None, f"Ошибка ping"
+            return None, f"Ошибка ping {domain}"
         
         # Извлекаем данные из вывода ping
         return parse_ping_output(output, domain), None
