@@ -3,8 +3,6 @@ import csv
 import platform
 import re
 
-# смотрим какая система
-system = platform.system().lower() == 'windows'
 
 def ping_domain(domain, count=4):
     """
@@ -85,6 +83,8 @@ def parse_ping_output(output, domain):
     
     return data
 
+# смотрим какая система
+system = platform.system().lower() == 'windows'
 
 # Список доменов для проверки
 domains = [
