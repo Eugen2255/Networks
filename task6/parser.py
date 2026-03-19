@@ -71,7 +71,7 @@ def parse(url="https://divoroom.store/catalog", headless=True):
                 card = page.locator('.js-store-product.t-store__product-snippet').first
                 
                 if card.count() > 0:
-                    product = extract_product_data(card, page)
+                    product = extract_product_data(card)
                     if product:
                         products.append(product)
             
