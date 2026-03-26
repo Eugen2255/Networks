@@ -40,27 +40,27 @@ curl -H "X-Forwarded-For: 8.8.8.8" http://127.0.0.1/
 
 ```bash
 # 1 Создать сеть
-docker network create task5-network
+docker network create task7-network
 
 # 2 Запустить базу данных
-docker run -d --name task6-db --network task6-network \
+docker run -d --name task7-db --network task7-network \
   -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password \
-  -e POSTGRES_DB=task6_db -v pg/var/lib/postgresql/data \
+  -e POSTGRES_DB=task7_db -v pg/var/lib/postgresql/data \
   -p 5432:5432 postgres:15-alpine
 
 # 3 Собрать образ приложения
-docker build -t task6-app .
+docker build -t task7-app .
 
 # 4 Запустить приложение
 docker run -d \
-  --name task6-app \
-  --network task6-network \
+  --name task7-app \
+  --network task7-network \
   -p 8080:8080 \
-  -e DATABASE_URL="postgresql://user:password@task6-db:5432/task6_db" \
-  task6-app
+  -e DATABASE_URL="postgresql://user:password@task7-db:5432/task7_db" \
+  task7-app
 
 # 5. Запустить nginx
-docker run -d --name task6-nginx --network task6-network \
+docker run -d --name task7-nginx --network task7-network \
   -p 80:80 \
   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro \
   nginx:alpine
@@ -73,8 +73,8 @@ curl http://127.0.0.1/
 
 ### Остановка и удаление
 ```bash
-docker stop task6-app task6-db task6-nginx
-docker rm -f task6-app task6-db task6-nginx
+docker stop task7-app task7-db task7-nginx
+docker rm -f task7-app task7-db task7-nginx
 ```
 
 ## Использование
